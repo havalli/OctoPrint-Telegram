@@ -3021,7 +3021,7 @@ class TelegramPlugin(
 
     def recv_callback(self, comm_instance, line, *args, **kwargs):
         # Found keyword, fire event and block until other text is received
-        if "echo:busy: paused for user" in line or "//action:paused" in line:
+        if "echo:busy: paused for user" in line or "action:paused" in line:
             if not self.triggered:
                 self.on_event("plugin_pause_for_user_event_notify", {})
                 self.triggered = True
