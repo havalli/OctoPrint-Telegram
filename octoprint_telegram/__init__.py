@@ -3020,6 +3020,7 @@ class TelegramPlugin(
                 self._logger.error("exception on event M600: " + str(ex))
 
     def recv_callback(self, comm_instance, line, *args, **kwargs):
+	self._logger.debug("recv_callback: " + line)
         # Found keyword, fire event and block until other text is received
         if "echo:busy: paused for user" in line or "action:paused" in line:
             if not self.triggered:
